@@ -1,0 +1,15 @@
+<mat-toolbar>
+    <span>My Okta App</span>
+    <span class="example-spacer"></span>
+    <button mat-button  *ngIf="!isAuthenticated" (click)="login()"><mat-icon>login</mat-icon></button>
+    <button mat-button id="blog-button" *ngIf="isAuthenticated" routerLink="/blog"><i aria-hidden="true" class="mail outline icon"></i>My Blog</button>
+    <button mat-button id="profile-button"  *ngIf="isAuthenticated" routerLink="/profile">Profile</button>
+    <button mat-button id="contact-button"  *ngIf="isAuthenticated" routerLink="/contact">Contact Us</button>
+    <button mat-button id="logout-button" color="warn"  *ngIf="isAuthenticated" (click)="logout()">
+        <mat-icon>logout</mat-icon></button>
+</mat-toolbar>
+<div style="text-align: center;">
+    <img *ngIf="!isAuthenticated" style="cursor: pointer;height: 300px;" (click)="login()" src="../../assets/login.jpg">
+    <br/>
+    <mat-card *ngIf="isAuthenticated">Welcome {{username}}</mat-card>
+</div>
